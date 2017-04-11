@@ -7,3 +7,4 @@
 - Datepicker
 - Autocomplete
 - Progressbar
+- Color picker
