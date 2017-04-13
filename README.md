@@ -8,3 +8,5 @@
 - Autocomplete
 - Progressbar
 - Color picker
+- Date formatter
+- Scroll 
