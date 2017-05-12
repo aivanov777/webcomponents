@@ -1,0 +1,22 @@
+<template id="template">
+    <style>
+        .popup {
+            position: fixed;
+            width: 550px;
+            height: 400px;
+            z-index: 9999;
+            border: 2px solid;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            -o-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+    </style>
+    <div class="popup">
+        <slot name="body"></slot>
+    </div>
+</template>
+<script src="wbcmpnnt-popup.js"></script>
