@@ -2,10 +2,17 @@
   const thatDoc = document;
   const thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
 
+  function leadZero(val, cnt=2) {
+    val = val + '';
+    for (var a = cnt - val.length; a > 0; a--) {
+      val = '0'+val;
+    }
+    return val;
+  }
+
   customElements.define('wbcmpnnt-date', class extends HTMLElement {
     constructor() {
       super();
-      console.warn(this);
     }
 
     connectedCallback() {
@@ -16,11 +23,19 @@
       return ['date'];
     }
 
+    setDate(newValue) {
+      const date = new Date(parseFloat(newValue));
+      const year = date.getFullYear();
+      const month = leadZero(date.getMonth() + 1);
+      const day = leadZero(date.getDate());
+      const hour = leadZero(date.getHours());
+      const min = leadZero(date.getMinutes());
+      const sec = leadZero(date.getSeconds());
+      this.innerText = hour + ':' + min + ':' + sec + '  ' + day + '.' + month + '.' + year;
+    }
+
     attributeChangedCallback(name, oldValue, newValue) {
-      console.warn(name, oldValue, newValue);
-      console.warn(new Date(newValue));
-      this.innerText = new Date(parseFloat(newValue));
-      // When the drawer is disabled, update keyboard/screen reader behavior.
+      this.setDate(newValue);
     }
 
   });
