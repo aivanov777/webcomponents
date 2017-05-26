@@ -8,6 +8,14 @@
 - show() - shows full item
 - hide() - hides collapsible content
 
+## Date formatter
+- [date] {unixTimestamp} data ts to be formatted
+
+
+## Tabs
+- switch() - switches tab to certain state
+
+
 
 - Slider / Accordion
 - Tooltip / hint
@@ -17,5 +25,4 @@
 - Autocomplete
 - Progressbar
 - Color picker
-- Date formatter
 - Scroll 
