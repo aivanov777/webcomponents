@@ -26,3 +26,4 @@
 - Progressbar
 - Color picker
 - Scroll 
+- Pagination
