@@ -9,15 +9,15 @@
       let shadowRoot = this.attachShadow({ mode: 'open' });
       this.shadowRoot.appendChild(template.cloneNode(true));
       this.tabs = this.shadowRoot.querySelector('.tabs');
-      this.nav = this.tabs.querySelectorAll('slot[name="nav"]');
-      this.units = this.tabs.querySelectorAll('slot[name="units"]');
     }
 
     connectedCallback() {
       // this.style.display = 'none';
+      this.nav = this.tabs.querySelectorAll('[slot="nav"]');
+      this.units = this.tabs.querySelectorAll('[slot="units"]');
       this.tabs
-          .addEventListener('click', function(evt){
-            console.warn(evt.currentTarget);
+          .addEventListener('click', (evt)=>{
+            console.warn(evt.target);
               evt.preventDefault();
           });
       if (this.tabs.querySelector('slot').childNodes.length > 0) {
@@ -25,7 +25,10 @@
       } else {
 
       }
-      console.warn(this.nav);
+
+
+      console.warn(this.units);
+      console.warn(this.tabs.querySelectorAll('[slot="units"]'));
       console.warn(this.tabs.querySelector('.navItem'));
     }
 
