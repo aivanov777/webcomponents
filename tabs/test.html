@@ -6,16 +6,40 @@
     <link rel="stylesheet" href="./intooee.slider.css">
     <script src="../base.js"></script>
     <script src="intooee.tabs.js"></script>
+    <style id="tab">
+        #tab1 .tab-unit {
+            display: none;
+            width: 400px;
+            padding: 20px 30px;
+            border: 1px solid #eee;
+        }
+        #tab1 a {
+            display: inline-block;
+            padding: 5px 10px;
+            color: orange;
+            text-decoration: none;
+            border: 1px solid #eee;
+            border-bottom: none;
+        }
+    </style>
+    <style id="tabActive">
+        #tab1 #tabunit__activeTabInd__ {
+            display: block;
+        }
+
+        #tab1 __activeTabTrigger__ {
+            color: red;
+            background: rgba(73, 114, 168, 0.13);
+        }
+    </style>
 </head>
 <body>
 
 <div class="tab" id="tab1" data-component="tab::">
-    <a href="#" data-trigger="click::tab::1">Tab 1</a>
-    <a href="#" data-trigger="click::tab::2">Tab 2</a>
-    <a href="#" data-trigger="click::tab::3">Tab 3 <span>1123</span></a>
-    <div class="tab-unit" id="tabunit1">asd</div>
-    <div class="tab-unit" id="tabunit2">asdasd</div>
-    <div class="tab-unit" id="tabunit3">asdasdasd</div>
+    <a href="#" data-trigger="click::tab::1">Tab 1</a><a href="#" data-trigger="click::tab::2">Tab 2</a><a href="#" data-trigger="click::tab::3">Tab 3</a>
+    <div id="tabunit1" class="tab-unit">asd</div>
+    <div id="tabunit2" class="tab-unit">asdasd</div>
+    <div id="tabunit3" class="tab-unit">asdasdasd</div>
 </div>
 
 <div class="slider-unit" id="slider" data-component="slider">

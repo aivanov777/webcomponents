@@ -1,18 +1,21 @@
 function Tabs() {
   var tabControlStyle;
   return {
-    init: function () {
-      loadStyle('#tab1 .tab-unit{ display: none }');
-      this.switchTab(1);
+    init: function (defaultVisible) {
+      defaultVisible = defaultVisible || 1;
+      loadStyle('#tab');
+      this.switchTab(defaultVisible);
     },
     switchTab: function (ind) {
-      tabControlStyle = loadStyle('#tab1 #tabunit' + ind + ' { display: block } [data-trigger$="tab::' + ind + '" i]{color:red}', tabControlStyle);
+      tabControlStyle = loadStyle('#tabActive', {
+        activeTabInd: ind,
+        activeTabTrigger: '[data-trigger$="tab::' + ind + '" i]'
+      }, tabControlStyle);
     },
     handle: function (evt) {
       const trigger = evt.target.closest('[data-trigger]');
-      if(trigger){
+      if (trigger) {
         const params = trigger.getAttribute('data-trigger').split('::');
-        console.warn(params);
         this.switchTab(params[2]);
       }
     }

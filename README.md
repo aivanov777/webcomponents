@@ -17,6 +17,7 @@
 
 
 
+## Other
 - Slider / Accordion
 - Tooltip / hint
 - Parallax
