@@ -23,8 +23,11 @@ function loadStyle(css, params, tag) {
 
 window.addEventListener('load', function () {
   const tabs = new Tabs();
+  const ec = new EC();
+  ec.init();
   tabs.init();
   document.body.addEventListener('click', function (evt) {
     tabs.handle(evt);
+    ec.handle(evt);
   });
 });
