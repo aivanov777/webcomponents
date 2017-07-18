@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" id="test" href="./intooee.slider.css">
+    <script src="./base.js"></script>
+    <script src="./tabs/intooee.tabs.js"></script>
+    <script src="./ecu/intooee.ec.js"></script>
+    <script src="./slider/intooee.slider.js"></script>
+    <script src="./modal/intooee.modal.js"></script>
+    <style>
+        .slider-unit {
+            overflow: hidden;
+        }
+
+        .slider-inner-wrap {
+            display: flex;
+            width: 200%;
+            transition: .3s;
+        }
+
+        .slider-item {
+            min-width: 16.6666666666%;
+            height: 200px;
+            line-height: 200px;
+            background: #ececec;
+            text-align: center;
+        }
+        .slider-item:nth-child(even){
+            background: #cecece;
+        }
+    </style>
+    <style id="sliderActive">
+        .slider-inner-wrap {
+            transform: translateX(__sliderOffset__);
+        }
+    </style>
+    <style id="modal">
+        .modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background: #efefef;
+            transform: translateX(-50%) translateY(-50%);
+            display: none;
+            width: 400px;
+            padding: 20px 30px;
+            height: 300px;
+            box-shadow: 0 0 23px 3px rgba(0, 0, 0, .4);
+            z-index: 1;
+        }
+    </style>
+    <style id="modalActive">
+        __activeTrigger__ {
+            background: red;
+        }
+
+        __activeTrigger__ + [data-slave] {
+            display: block;
+        }
+
+    </style>
+    <style id="ec">
+        #ec1 .ec-unit {
+            display: none;
+            width: 400px;
+            padding: 20px 30px;
+        }
+
+        #ec1 h5 {
+            display: block;
+            padding: 5px 10px;
+            margin: 0;
+            color: orange;
+            font-size: 19px;
+            text-decoration: none;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+    <style id="ecActive">
+        #ec1 __activeTrigger__ + [data-slave] {
+            display: block;
+        }
+
+        #ec1 __activeTrigger__ {
+            color: red;
+            background: rgba(73, 114, 168, 0.13);
+        }
+    </style>
+    <style id="tab">
+        #tab1 .tab-unit {
+            display: none;
+            width: 400px;
+            padding: 20px 30px;
+            border: 1px solid #eee;
+        }
+
+        #tab1 a {
+            display: inline-block;
+            padding: 5px 10px;
+            color: orange;
+            text-decoration: none;
+            border: 1px solid #eee;
+            border-bottom: none;
+        }
+    </style>
+    <style id="tabActive">
+        #tab1 #tabunit__activeInd__ {
+            display: block;
+        }
+
+        #tab1 __activeTrigger__ {
+            color: red;
+            background: rgba(73, 114, 168, 0.13);
+        }
+    </style>
+</head>
+<body>
+
+<div id="tab1" data-component="tab::">
+    <a href="#" data-trigger="click::tab::1">Tab 1</a><a href="#" data-trigger="click::tab::2">Tab 2</a><a href="#"
+                                                                                                           data-trigger="click::tab::3">Tab
+    3</a>
+    <div id="tabunit1" class="tab-unit">asd</div>
+    <div id="tabunit2" class="tab-unit">asdasd</div>
+    <div id="tabunit3" class="tab-unit">asdasdasd</div>
+</div>
+<hr>
+<div id="ec1" data-component="ec::">
+    <h5 data-trigger="click::ec::1">Toggle unit 1</h5>
+    <div data-slave class="ec-unit">Collapsible content</div>
+
+    <h5 data-trigger="click::ec::2">Toggle unit 2</h5>
+    <div data-slave class="ec-unit">Collapsible content</div>
+
+    <h5 data-trigger="click::ec::3">Toggle unit 3</h5>
+    <div data-slave class="ec-unit">Collapsible content</div>
+</div>
+<hr>
+<button data-trigger="click::modal::1">Open modal</button>
+<div data-slave class="modal">
+    Modal content
+    <button data-trigger="click::modal::1">Close modal</button>
+</div>
+<hr>
+<div class="slider-unit" id="slider" data-component="slider::">
+    <div class="slider-inner-wrap">
+        <div class="slider-item">1</div>
+        <div class="slider-item">2</div>
+        <div class="slider-item">3</div>
+        <div class="slider-item">4</div>
+        <div class="slider-item">5</div>
+        <div class="slider-item">6</div>
+    </div>
+</div>
+<button data-trigger="click::slider::-1">Prev</button>
+<button data-trigger="click::slider::1">Next</button>
+
+</body>
+</html>

@@ -8,12 +8,12 @@ function Tabs() {
     },
     switchTab: function (ind) {
       tabControlStyle = loadStyle('#tabActive', {
-        activeTabInd: ind,
-        activeTabTrigger: '[data-trigger$="tab::' + ind + '" i]'
+        activeInd: ind,
+        activeTrigger: '[data-trigger$="tab::' + ind + '" i]'
       }, tabControlStyle);
     },
     handle: function (evt) {
-      const trigger = evt.target.closest('[data-trigger]');
+      const trigger = evt.target.closest('[data-trigger^="click::tab"]');
       if (trigger) {
         const params = trigger.getAttribute('data-trigger').split('::');
         this.switchTab(params[2]);
