@@ -38,10 +38,14 @@ window.addEventListener('load', function () {
   const ec = new EC();
   const modal = new Modal();
   const slider = new Slider();
+  const dateFormatter = new DateFormatter();
+  const customScroll = new CustomScroll();
   ec.init();
   tabs.init();
   modal.init();
   slider.init();
+  customScroll.init();
+  dateFormatter.init(document.getElementById('date'));
   document.body.addEventListener('click', function (evt) {
     tabs.handle(evt);
     ec.handle(evt);
