@@ -29,7 +29,7 @@ function EC() {
       const trigger = evt.target.closest('[data-trigger^="click::ec"]');
       if (trigger) {
         const params = trigger.getAttribute('data-trigger').split('::');
-        this.toggle(params[2]);
+        this.toggle(parseInt(params[2],10));
       }
     }
   }
